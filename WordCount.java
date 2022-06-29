@@ -21,9 +21,6 @@ public class WordCount extends Application {
     // a text representing the number of words and characters
     private Text count = new Text("0 words || 0 characters");
 
-    // a copy of text inputted from the user in the text area
-    private StringBuffer textBuffer = new StringBuffer();
-
     public static void main(String[] args) {
         launch(args);
     }
@@ -73,12 +70,18 @@ public class WordCount extends Application {
 
     class MyTextArea extends TextArea{
 
+        /**
+         * this method is called whenever any change occures to inputted text in the text area.
+         * Based on that the updateCountBasedOn(textArea's text) will be invoked after changes take place
+         * so a real-time counting is guaranteed 
+         * */  
         @Override
         public void replaceText(int start, int end, String text) {
+            // changes to text are take place
             super.replaceText(start, end, text);
 
-            textBuffer.replace(start, end, text);
-            updateCountBasedOn(textBuffer.toString());
+            // updatin count
+            updateCountBasedOn(textArea.getText());
         }
     }
 
