@@ -77,10 +77,10 @@ public class WordCount extends Application {
          * */  
         @Override
         public void replaceText(int start, int end, String text) {
-            // changes to text are take place
+            // changes to textArea's text based on the input from the user take place here
             super.replaceText(start, end, text);
 
-            // updatin count
+            // updating count
             updateCountBasedOn(textArea.getText());
         }
     }
